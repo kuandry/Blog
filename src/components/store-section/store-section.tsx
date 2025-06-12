@@ -1,10 +1,9 @@
-import { PaintbrushIcon } from "lucide-react"
 import Image from "next/image"
 
-export const SectionFunction = () => {
+export const StoreFunction = () => {
     return (
         <section className="container bg-gray-700 grid gap-6 md:grid-cols-3 pb-8 pt-8 md:py-10">
-            <div className="max-w-full md:col-span-3 text-center">
+            <div className="max-w-full md:col-span-3 text-center pb-5">
                 <h2 className="text-gray-100 text-heading-md">
                     Sua loja de afiliados, simples, do jeito que deveria ser
                 </h2>
