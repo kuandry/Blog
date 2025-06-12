@@ -43,7 +43,8 @@ export const FeatureSection = () => {
                             />
                         </div>
 
-                        <Button asChild className="w-full gap-2 rounded-full mt-4 md:mt-auto md:flex lg:hidden">
+                        <Button asChild className="w-full gap-2 rounded-full mt-4 md:mt-auto md:hidden xl:hidden">
+
                             <Link href="/criar-loja">
                                 Criar loja grátis
                                 <ArrowRight />
