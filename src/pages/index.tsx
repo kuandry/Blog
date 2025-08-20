@@ -2,7 +2,7 @@ import { FeatureSection } from "@/components/feature-section";
 import { CustomerStorySection } from "@/components/feedback-section/customer-section-store";
 import { HeroSection } from "@/components/hero-section";
 import { FooterFunction } from "@/components/min-footer-section";
-import { StoreFunction } from "@/components/store-section";
+import { CallToAction } from "@/components/call-to-action";
 
 export default function Home() {
   return (
@@ -10,7 +10,7 @@ export default function Home() {
       <article className="flex flex-col">
         <HeroSection />
         <FeatureSection />
-        <StoreFunction />
+        <CallToAction />
         <CustomerStorySection />
         <FooterFunction />
       </article>
