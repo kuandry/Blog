@@ -1,8 +1,9 @@
 import { FeatureSection } from "@/components/feature-section";
-import { CustomerStorySection } from "@/components/feedback-section/customer-section-store";
+import { CustomerStorySection } from "@/components/customer-story-section/customer-section-store";
 import { HeroSection } from "@/components/hero-section";
 import { FooterFunction } from "@/components/min-footer-section";
 import { CallToAction } from "@/components/call-to-action";
+import { SupportSection } from "@/components/suport-section";
 
 export default function Home() {
   return (
@@ -10,9 +11,10 @@ export default function Home() {
       <article className="flex flex-col">
         <HeroSection />
         <FeatureSection />
-        <CallToAction />
+        <SupportSection />
         <CustomerStorySection />
-        <FooterFunction />
+        <CallToAction />
+        {/* <FooterFunction /> */}
       </article>
     </>
   );

@@ -10,8 +10,8 @@ export const HeroSection = () => {
 
                 {/* Texto e Botões - Posicionado à esquerda */}
                 <div className="flex flex-col gap-4 md:items-start lg:items-start order-last md:order-first">
-                    <h1 className="text-gray-100 text-heading-hg">
-                        Venda seus produtos como afiliado em um único lugar.
+                    <h1 className="text-gray-100 text-heading-hg font-sans">
+                        Venda seus produtos como afiliado em um único lugar
                     </h1>
 
                     <div className="flex items-center gap-2">
