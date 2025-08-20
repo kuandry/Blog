@@ -1,1 +1,1 @@
-export * from './feedback-section';
+export * from './customer-section-store';
