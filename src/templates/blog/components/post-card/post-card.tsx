@@ -36,6 +36,7 @@ export const PostCard = ({
           <div className="absolute top-0 right-0 px-3 py-1 bg-gray-600 backdrop-blur-sm rounded-bl-[10px]">
             <span className="text-body-xs text-gray-300">{date}</span>
           </div>
+
           <Image
             src={image}
             alt=""
@@ -46,14 +47,13 @@ export const PostCard = ({
         </div>
 
         {/* Post info */}
-        <div className="px-2 mt-4 space-y-4">
+        <div className="px-2 my-4 space-y-4">
           <h2 className="text-heading-sm text-gray-100 line-clamp-3">
             {title}
           </h2>
 
           <p className="text-gray-300 text-body-sm line-clamp-3">
             {description}
-
           </p>
         </div>
 

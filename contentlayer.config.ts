@@ -2,7 +2,7 @@ import {
   defineDocumentType,
   defineNestedType,
   makeSource,
-} from 'contentlayer/source-files';
+} from 'contentlayer2/source-files'; // Mudança aqui: contentlayer2
 
 const Author = defineNestedType(() => ({
   name: 'Author',
@@ -40,4 +40,7 @@ export const Post = defineDocumentType(() => ({
   },
 }));
 
-export default makeSource({ contentDirPath: 'posts', documentTypes: [Post] });
+export default makeSource({ 
+  contentDirPath: 'posts', 
+  documentTypes: [Post]
+});

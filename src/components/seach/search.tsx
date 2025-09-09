@@ -1,3 +1,4 @@
+
 import { cn } from '@/lib/utils';
 import { CircleX, SearchIcon } from 'lucide-react';
 import { useRouter } from 'next/router';
@@ -33,7 +34,7 @@ export const Search = () => {
     <form onSubmit={handleSearch} className="relative group w-full md:w-60">
       <SearchIcon
         className={cn(
-          'text-gray-300 absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 transition-colors duration-200 group-focus-within:text-blue-300',
+          'text-gray-300 absolute left-3 top-5 -translate-y-1/2 h-4 w-4 transition-colors duration-200 group-focus-within:text-blue-300',
           query ? ' text-blue-300' : ''
         )}
       />

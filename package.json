@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-     "contentlayer": "contentlayer build"
+    "contentlayer": "contentlayer build"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
@@ -17,7 +17,7 @@
     "contentlayer": "^0.3.4",
     "lucide-react": "^0.511.0",
     "next": "15.1.8",
-    "next-contentlayer": "^0.3.4",
+    "next-contentlayer2": "^0.5.8",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^3.3.0",
