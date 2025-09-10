@@ -1,15 +1,19 @@
 import { AtSign, Facebook, Linkedin, Slack, Twitter } from 'lucide-react';
+
 export type ShareConfig = {
     url: string;
     title?: string;
     text?: string;
 };
+
 export type SocialProvider =
     | 'linkedin'
     | 'facebook'
     | 'slack'
     | 'twitter'
-    | 'threads';
+    | 'threads'
+    | 'clipboard';
+
 export const SOCIAL_PROVIDERS = {
     linkedin: {
         name: 'LinkedIn',

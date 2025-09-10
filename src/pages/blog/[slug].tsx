@@ -22,7 +22,7 @@ export default function PostPage() {
         (post) => post.slug.toLowerCase() === slug.toLowerCase()
     )!;
     const publishedDate = new Date(post?.date).toLocaleDateString('pt-BR');
-    const postUrl = `http://localhost:3000/blog/${slug}`;
+    const postUrl = `https://site.set/blog/${slug}`;
 
     const { shareButtons } = useShare({
         url: postUrl,
@@ -69,7 +69,6 @@ export default function PostPage() {
                                 <Avatar.Image
                                     src={post?.author.avatar}
                                     alt={post?.title}
-                                    // size="sm"
                                 />
                                 <Avatar.Content>
                                     <Avatar.Title>{post?.author.name}</Avatar.Title>
@@ -87,7 +86,7 @@ export default function PostPage() {
                     </article>
 
                     <aside className="space-y-6">
-                        <div className="rounded-lg bg-gray-700 p-4 md:p-6">
+                        <div className="rounded-lg bg-gray-700">
                             <h2 className="mb-4 text-heading-xs text-gray-100">
                                 Compartilhar
                             </h2>
