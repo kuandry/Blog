@@ -49,7 +49,7 @@ export const Search = () => {
 
       {query && (
         <CircleX
-          className="absolute w-4 h-4 top-1/2 -translate-y-1/2 right-3 text-gray-300"
+          className="absolute w-4 h-4 top-5 -translate-y-1/2 right-3 text-gray-300"
           onClick={resetSearch}
         />
       )}
