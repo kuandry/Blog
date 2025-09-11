@@ -32,7 +32,7 @@ export const PostPage = () => {
     });
 
     return (
-        <main className="py-20 text-gray-100">
+        <main className="py-20 text-gray-100 mb-10">
             <div className="container space-y-8 px-4 md:px-8">
                 <Breadcrumb>
                     <BreadcrumbList>
@@ -50,7 +50,7 @@ export const PostPage = () => {
                     </BreadcrumbList>
                 </Breadcrumb>
 
-                <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-6 lg:gap-12">
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-6 lg:gap-12 mt-10">
                     <article className="bg-gray-600 rounded-lg overflow-hidden border-gray-400 border-[1px]">
                         <figure className="relative aspect-[16/10] w-full overflow-hidden rounded-lg">
                             <Image
@@ -92,7 +92,7 @@ export const PostPage = () => {
                                 Compartilhar
                             </h2>
 
-                            <div className="flex justify-between lg:flex-col gap-2">
+                            <div className="flex justify-between lg:flex-col flex-wrap gap-2">
                                 {shareButtons.map((provider) => (
                                     <Button
                                         key={provider.provider}
