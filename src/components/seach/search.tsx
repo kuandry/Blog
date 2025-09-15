@@ -1,18 +1,18 @@
-
 import { cn } from '@/lib/utils';
 import { CircleX, SearchIcon } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useCallback } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
 export const Search = () => {
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const router = useRouter();
   const searchParams = useSearchParams();
   const query = searchParams?.get('q') ?? '';
+  const hasQuery = !!searchParams?.has('q');
 
   const handleSearch = useCallback(
     (event: React.FormEvent) => {
       event.preventDefault();
-      
       if (query.trim()) {
         router.push(`/blog?q=${encodeURIComponent(query)}`);
       }
@@ -22,28 +22,32 @@ export const Search = () => {
 
   const handleQueryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newQuery = event.target.value;
-
     router.push(`/blog?q=${encodeURIComponent(newQuery)}`, {
       scroll: false,
     });
   };
 
   const resetSearch = () => {
-    router.push('/blog', {
-      scroll: false
-    });
+    router.push('/blog', { scroll: false });
   };
+
+  useEffect(() => {
+    if (hasQuery) {
+      inputRef.current?.focus();
+    }
+  }, [hasQuery]);
 
   return (
     <form onSubmit={handleSearch} className="relative group w-full md:w-60">
       <SearchIcon
         className={cn(
-          'text-gray-300 absolute left-3 top-5 -translate-y-1/2 h-4 w-4 transition-colors duration-200 group-focus-within:text-blue-300',
+          'text-gray-300 absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 transition-colors duration-200 group-focus-within:text-blue-300',
           query ? ' text-blue-300' : ''
         )}
       />
 
       <input
+        ref={inputRef}
         type="text"
         value={query}
         placeholder="Buscar"
@@ -53,7 +57,7 @@ export const Search = () => {
 
       {query && (
         <CircleX
-          className="absolute w-4 h-4 top-5 -translate-y-1/2 right-3 text-gray-300"
+          className="absolute w-4 h-4 top-1/2 -translate-y-1/2 right-3 text-gray-300"
           onClick={resetSearch}
         />
       )}
