@@ -1,25 +1,29 @@
+'use client';
 
-import { allPosts } from 'contentlayer/generated';
+import { Post } from 'contentlayer/generated';
 import { Inbox } from 'lucide-react';
-import { useRouter } from 'next/router';
+import { useSearchParams } from 'next/navigation';
 import { PostCard } from './components/post-card';
 import { PostGridCard } from './components/post-grid-card';
 import { Search } from '@/components/seach';
 
-export function BlogList() {
-  const router = useRouter();
-  const query = router.query.q as string;
+export type BlogListProps = {
+  posts: Post[];
+};
+
+export function BlogList({ posts }: BlogListProps) {
+  const searchParams = useSearchParams();
+  const query = searchParams?.get('q') ?? '';
   const pageTitle = query
     ? `Resultados de busca para "${query}"`
     : 'Dicas e estratégias para impulsionar seu negócio';
 
-  const posts = query
-    ? allPosts.filter((post) =>
-        post.title.toLocaleLowerCase()?.includes(query.toLocaleLowerCase())
-      )
-    : allPosts;
-
-  const hasPosts = posts?.length > 0;
+  const postList = query
+    ? posts.filter((post) =>
+      post.title.toLocaleLowerCase()?.includes(query.toLocaleLowerCase())
+    )
+    : posts;
+  const hasPosts = postList?.length > 0;
 
   return (
     <div className="flex flex-col py-24 flex-grow h-full">
@@ -44,7 +48,7 @@ export function BlogList() {
       {/* Listagem de posts */}
       {hasPosts && (
         <PostGridCard>
-          {posts.map((post) => (
+          {postList.map((post) => (
             <PostCard
               key={post._id}
               title={post.title}
