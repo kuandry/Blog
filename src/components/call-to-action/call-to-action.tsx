@@ -1,5 +1,4 @@
 import { ArrowRight, Store } from 'lucide-react';
-import { PT_Sans_Caption } from 'next/font/google';
 import Link from 'next/link';
 import { Button } from '../ui/button';
 
