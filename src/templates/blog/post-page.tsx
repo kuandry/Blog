@@ -1,9 +1,6 @@
-
-'use client';
-import { allPosts } from 'contentlayer/generated';
+import { Post } from 'contentlayer/generated';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 import { Avatar } from '@/components/avatar';
 import { Markdown } from '@/components/markdown';
@@ -14,26 +11,18 @@ import {
     BreadcrumbList,
     BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import { Button } from '@/components/ui/button';
-import { useShare } from '@/hooks';
+import { PostShare } from './components/post-share';
 
-export const PostPage = () => {
-    const router = useRouter();
-    const slug = router.query.slug as string;
-    const post = allPosts.find(
-        (post) => post?.slug?.toLowerCase() === slug?.toLowerCase()
-    )!;
+export type PostPageProps = {
+    post: Post;
+};
+
+export const PostPage = ({ post }: PostPageProps) => {
     const publishedDate = new Date(post?.date).toLocaleDateString('pt-BR');
-    const postUrl = `https://site.set/blog/${slug}`;
-
-    const { shareButtons } = useShare({
-        url: postUrl,
-        title: post?.title,
-        text: post?.description,
-    });
+    const postUrl = `https://site.set/blog/${post.slug}`;
 
     return (
-        <main className="py-20 text-gray-100 mb-10">
+        <main className="py-20 text-gray-100">
             <div className="container space-y-8 px-4 md:px-8">
                 <Breadcrumb>
                     <BreadcrumbList>
@@ -51,7 +40,7 @@ export const PostPage = () => {
                     </BreadcrumbList>
                 </Breadcrumb>
 
-                <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-6 lg:gap-12 mt-10">
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-6 lg:gap-12">
                     <article className="bg-gray-600 rounded-lg overflow-hidden border-gray-400 border-[1px]">
                         <figure className="relative aspect-[16/10] w-full overflow-hidden rounded-lg">
                             <Image
@@ -87,27 +76,11 @@ export const PostPage = () => {
                         </div>
                     </article>
 
-                    <aside className="space-y-6">
-                        <div className="rounded-lg bg-gray-700">
-                            <h2 className="hidden md:block mb-4 text-heading-xs text-gray-100">
-                                Compartilhar
-                            </h2>
-
-                            <div className="flex justify-between lg:flex-col flex-wrap gap-2">
-                                {shareButtons.map((provider) => (
-                                    <Button
-                                        key={provider.provider}
-                                        onClick={() => provider.action()}
-                                        variant="outline"
-                                        className="w-fit md:w-full justify-start gap-2"
-                                    >
-                                        {provider.icon}
-                                        <span className="hidden md:block">{provider.name}</span>
-                                    </Button>
-                                ))}
-                            </div>
-                        </div>
-                    </aside>
+                    <PostShare
+                        url={postUrl}
+                        title={post?.title}
+                        description={post?.description}
+                    />
                 </div>
             </div>
         </main>
