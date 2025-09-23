@@ -3,11 +3,6 @@ import { PT_Sans_Caption } from 'next/font/google';
 import Link from 'next/link';
 import { Button } from '../ui/button';
 
-const ptSansCaption = PT_Sans_Caption({
-  subsets: ['latin'],
-  weight: '700',
-});
-
 export const CallToAction = () => {
   return (
     <section className="relative py-24 bg-gradient-to-b from-cyan-950/20 to-gray-700">

@@ -1,11 +1,6 @@
 import { PT_Sans_Caption } from 'next/font/google';
 import Image from 'next/image';
 
-const ptSansCaption = PT_Sans_Caption({
-  subsets: ['latin'],
-  weight: '700',
-});
-
 const customerStories = [
   {
     content:
