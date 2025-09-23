@@ -1,4 +1,6 @@
+'use client';
 
+import { Suspense } from 'react';
 import { BlogList } from '@/templates/blog';
 import { allPosts } from 'contentlayer/generated';
 
@@ -7,5 +9,9 @@ export default function BlogListPage() {
         (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
     );
 
-    return <BlogList posts={sortedPosts} />;
+    return (
+        <Suspense fallback={<div>Carregando...</div>}>
+            <BlogList posts={sortedPosts} />
+        </Suspense>
+    );
 }
